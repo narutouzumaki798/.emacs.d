@@ -22,7 +22,11 @@
 (setq key-chord-two-keys-delay 0.5)
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-mode 1)
+(global-disable-mouse-mode)
 
+
+;; backup
+(setq make-backup-files nil)
 
 ;; theme
 (load-theme 'afternoon t)
@@ -49,7 +53,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(evil key-chord disable-mouse company afternoon-theme))
+ '(package-selected-packages '(disable-mouse evil key-chord company afternoon-theme))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
