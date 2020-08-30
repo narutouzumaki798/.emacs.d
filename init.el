@@ -30,6 +30,10 @@
 
 ;; theme
 (load-theme 'afternoon t)
+(global-linum-mode)
+
+
+
 
 ;; custom functions
 (defun aaa ()
