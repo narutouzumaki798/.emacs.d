@@ -12,33 +12,62 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
+;; scoll ---
+(setq redisplay-dont-pause t
+  scroll-margin 1
+  scroll-step 1
+  scroll-conservatively 10000
+  scroll-preserve-screen-position 1)
+
+
+
+;; manually installed packages
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+;; custom themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;; load files
+(load-file "~/.emacs.d/lisp/flames-of-freedom.el")
+
+
+
+;; theme
+(load-theme 'cyberpunk t)
+(global-linum-mode)
+
 ;; global modes
 (global-company-mode)
 (setq company-idle-delay 0)
-(global-disable-mouse-mode)
-
-;; evil
-(evil-mode 1)
-(setq key-chord-two-keys-delay 0.5)
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-(key-chord-mode 1)
 (global-disable-mouse-mode)
 
 
 ;; backup
 (setq make-backup-files nil)
 
-;; theme
-(load-theme 'afternoon t)
-(global-linum-mode)
+;; evil
+(evil-mode 1)
+(setq key-chord-two-keys-delay 0.5)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+(key-chord-mode 1)
 
+
+
+;; typing of emacs
+;; (load "typing")
 
 
 
 ;; custom functions
 (defun aaa ()
   (interactive)
-  (find-file "~/Documents/__jadavpur/sem6/network/network_assign3/main.cpp"))
+  (find-file "~/Documents/__jadavpur/sem6/network/network_assign5/ans.txt"))
+
+(defun exer ()
+  (interactive)
+  (find-file "~/exercism/emacs-lisp/hello-world/hello-world.el"))
+
+(defun e ()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
 
 
 
@@ -57,7 +86,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(disable-mouse evil key-chord company afternoon-theme))
+ '(package-selected-packages
+   '(aggressive-indent rainbow-delimiters nyan-mode key-chord fireplace evil disable-mouse company afternoon-theme))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
