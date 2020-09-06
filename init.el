@@ -20,6 +20,12 @@
   scroll-preserve-screen-position 1)
 
 
+
+;; indentation ---
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
+
 ;; manually installed packages
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; custom themes
@@ -34,19 +40,19 @@
 
 
 ;; theme
-(load-theme 'cyberpunk t)
+(load-theme 'grandshell t)
 (global-linum-mode)
 
 
 
 ;; global modes
 (global-company-mode)(setq company-idle-delay 0)
-
 (global-disable-mouse-mode)
+(electric-pair-mode);;(autopair-global-mode)
 
-(autopair-global-mode)
 
-
+;; hooks
+(add-hook 'company-mode-hook 'rainbow-delimiters-mode)
 
 ;; backup
 (setq make-backup-files nil)
@@ -63,12 +69,10 @@
 
 
 
-
-
 ;; custom functions
 (defun aaa ()
   (interactive)
-  (find-file "~/Documents/__jadavpur/sem6/network/network_assign5/ans.txt"))
+  (find-file "~/Documents/__jadavpur/faltu/curses/maze/maze.cpp"))
 
 (defun exer ()
   (interactive)
@@ -77,6 +81,32 @@
 (defun e ()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
+
+
+(defun compiler ()
+  (interactive)
+  (find-file "~/Documents/__jadavpur/sem6/compiler/lockdown/code_generator/main.cpp"))
+
+
+(defun faltu ()
+  (interactive)
+  (find-file "~/Documents/__jadavpur/faltu/fff.cpp"))
+
+(defun chip ()
+  (interactive)
+  (find-file "~/Documents/__jadavpur/faltu/curses/chip8/main.cpp"))
+
+
+
+
+(defun run ()
+  (interactive)
+  (let ((term-buffer (term "/bin/bash")))
+    (set-buffer term-buffer)
+    (term-send-raw-string "./run\n")
+    ))
+  
+
 
 
 
@@ -90,12 +120,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(evil-visual-mark-mode exwm aggressive-indent rainbow-delimiters nyan-mode key-chord fireplace evil disable-mouse company afternoon-theme))
+ '(ansi-color-names-vector
+   ["#000000" "#8b0000" "#00ff00" "#ffa500" "#7b68ee" "#dc8cc3" "#93e0e3" "#dcdccc"])
+ '(custom-safe-themes
+   '("57e3f215bef8784157991c4957965aa31bac935aca011b29d7d8e113a652b693" default))
+ '(fci-rule-color "#383838")
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Source Code Variable" :foundry "ADBO" :slant normal :weight bold :height 158 :width normal)))))
+ '(default ((t (:family "Source Code Variable" :foundry "ADBO" :slant normal :weight semi-bold :height 180 :width normal)))))
