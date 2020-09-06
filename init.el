@@ -20,24 +20,32 @@
   scroll-preserve-screen-position 1)
 
 
-
 ;; manually installed packages
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+
+
+
 ;; load files
 (load-file "~/.emacs.d/lisp/flames-of-freedom.el")
-
+(load-file "~/.emacs.d/lisp/autopair.el")
 
 
 ;; theme
 (load-theme 'cyberpunk t)
 (global-linum-mode)
 
+
+
 ;; global modes
-(global-company-mode)
-(setq company-idle-delay 0)
+(global-company-mode)(setq company-idle-delay 0)
+
 (global-disable-mouse-mode)
+
+(autopair-global-mode)
+
 
 
 ;; backup
@@ -51,8 +59,9 @@
 
 
 
-;; typing of emacs
-;; (load "typing")
+
+
+
 
 
 
@@ -75,11 +84,6 @@
 
 
 
-
-
-
-
-
 ;; hat dite nei ------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -87,7 +91,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(aggressive-indent rainbow-delimiters nyan-mode key-chord fireplace evil disable-mouse company afternoon-theme))
+   '(evil-visual-mark-mode exwm aggressive-indent rainbow-delimiters nyan-mode key-chord fireplace evil disable-mouse company afternoon-theme))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
