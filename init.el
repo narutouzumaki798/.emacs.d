@@ -27,7 +27,8 @@
       c-basic-offset 4
       tab-width 4
       indent-tabs-mode t)
-
+(setq-default c-tab-always-indent 'complete)
+(setq backward-delete-char-untabify-method 'hungry)
 
 ;; manually installed packages
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -39,12 +40,13 @@
 
 ;; load files
 (load-file "~/.emacs.d/lisp/flames-of-freedom.el")
-(load-file "~/.emacs.d/lisp/autopair.el")
+;;(load-file "~/.emacs.d/lisp/autopair.el")
 (load-file "~/.emacs.d/lisp/color-theme-sanityinc-tomorrow.el")
+(load-file "~/.emacs.d/lisp/evil-escape.el")
 
 
 ;; theme
-(load-theme 'sanityinc-tomorrow-bright t)
+(load-theme 'hipster t)
 (linum-relative-global-mode)
 
 ;; global modes
@@ -63,13 +65,8 @@
 
 ;; evil
 (evil-mode 1)
-(setq key-chord-two-keys-delay 0.5)
-(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-(key-chord-mode 1)
-
-
-
-
+(setq-default evil-escape-key-sequence "jk")
+(evil-escape-mode)
 
 
 
@@ -90,6 +87,12 @@
   (interactive)
   (find-file "~/Documents/__jadavpur/sem6/compiler/lockdown/code_generator/main.cpp"))
 
+(defun engine ()
+  (interactive)
+  (find-file "~/Documents/__jadavpur/faltu/curses/engine/engine.cpp"))
+(defun maze ()
+  (interactive)
+  (find-file "~/Documents/__jadavpur/faltu/curses/maze/maze.cpp"))
 (defun chip ()
   (interactive)
   (find-file "~/Documents/__jadavpur/faltu/emudev/chip8/emu/engine.c"))
@@ -106,7 +109,10 @@
 
 (defun it ()
   (interactive)
-  (find-file "~/Documents/__jadavpur/sem7/internet/2_assignment2/server.cpp"))
+  (find-file "~/Documents/__jadavpur/sem7/internet/assignment2/node_server.js"))
+(defun tom ()
+  (interactive)
+  (find-file "~/Documents/__jadavpur/sem7/internet/assignment3/index.html"))
 
 
 (defun run ()
