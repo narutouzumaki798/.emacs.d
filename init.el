@@ -263,7 +263,7 @@
 ;; rougelike ------------------------------------------------------------------------------
 (defun nethack ()
   (interactive)
-  (find-file "/mnt/local_disk_d/linux-video-game/nethack/ascii/games/lib/nethackdir/save/faltu/save-scum.c"))
+  (find-file "/mnt/local_disk_d/linux-video-game/source/NetHack/src/dog.c"))
 
 ;; baje jinis --------------------------------------------------------------------------------
 (defun gate ()
