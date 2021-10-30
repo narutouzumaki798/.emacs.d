@@ -75,7 +75,7 @@
 
 
 ;; ctags
-(visit-tags-table "/mnt/local_disk_d/__signaltron/rohc/TAGS")
+;; (visit-tags-table "/mnt/local_disk_d/__signaltron/rohc/TAGS")
 
 ;; hooks
 (add-hook 'company-mode-hook 'rainbow-delimiters-mode)
@@ -132,7 +132,6 @@
 (evil-global-set-key 'normal (kbd "RET") 'compile)
 (define-key compilation-mode-map (kbd "g") nil) ;; unbind recompile key
 
-
 ;; diary
 (setq diary-file "/mnt/local_disk_d/__isi/diary")
 (setq diary-number-of-entries 7)
@@ -154,6 +153,9 @@
 (global-set-key [C-f1] 'show-file-name) ; Or any other key you want
 
 
+;; browser
+(setq browse-url-browser-function 'browse-url-firefox)
+
 
 ;; kajer jinis -----------------------------------------------------------------------------
 (defun e ()
@@ -170,7 +172,10 @@
   (find-file "~/.Xresources"))
 (defun yyy ()
   (interactive)
-  (find-file "~/.config/youtube-dl/config"))
+  (find-file "~/.bashrc")
+  (search-forward "ycontinue")
+  (evil-scroll-line-to-top nil)
+  )
 (defun close ()
   (interactive)
   (mapc 'kill-buffer (buffer-list))
@@ -178,111 +183,16 @@
   (delete-other-windows))
 (defun cal ()
   (interactive)
-  (calendar))
+  (calendar)
+  ;; (delete-other-windows)
+  )
 (defun ddd ()
   (interactive)
   (diary)
   (evil-window-next nil)
   (delete-other-windows))
 
-;; faltu jinis ----------------------------------------------------------------------
-(defun maze ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/curses/maze/maze.cpp"))
-(defun engine ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/curses/engine/engine.cpp"))
-(defun chip ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/emudev/chip8/emu/engine.c"))
-(defun compiler ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/sem6/compiler/lockdown/code_generator/main.cpp"))
-(defun dose ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/infocom/d-d-d.org"))
-(defun infocom ()
-  (interactive)
-  ;;(find-file "/mnt/local_disk_d/__jadavpur/infocom/infocom"))
-  (malyon "/mnt/local_disk_d/__jadavpur/infocom/infocom/HITCHHIK.z3"))
-(defun mario ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/sem8/neat/mario.lua"))
-(defun nintendo ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/hack/nitendo_hireme.c"))
-(defun inf ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/sem7/information/run"))
-(defun ai ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/sem7/ai/ai.org"))
-(defun faltu ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/faltu.org"))
-(defun dm ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/curses/asadharon-dm/data.txt"))
-(defun theory ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/theory/theory.org"))
-(defun advent ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/algo/advent/main.c"))
-(defun ascii ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/ascii.txt"))
-(defun history ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/history.org"))
-(defun comp ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/sem8/turing-complete/aaa.tex"))
-(defun lisp ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/lisp.el"))
-(defun isi ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__isi/cipher/main.cpp"))
-(defun cipher ()
-  (interactive)
-  (find-file "/home/user1/Downloads/faltu/aaa.py"))
-
-;; tv ------------------------------------------------
-(defun xfiles ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/faltu/xfiles/xfiles_s4/"))
-(defun blacklist ()
-  (interactive)
-  (find-file "/home/user1/Documents/subtitles/blacklist/s08/"))
-(defun watch ()
-  (interactive)
-  (find-file "/home/user1/Documents/subtitles/history.org"))
-
-
-;; rougelike ------------------------------------------------------------------------------
-(defun nethack ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/linux-video-game/source/NetHack/src/dog.c"))
-
-;; baje jinis --------------------------------------------------------------------------------
-(defun gate ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/general/gate/gate2022/registration.org"))
-(defun stat ()
-  (interactive)
-  (find-file "/mnt/local_disk_d/__jadavpur/theory/stat.org"))
-(defun run ()
-  (interactive)
-  (let ((term-buffer (term "/bin/bash")))
-    (set-buffer term-buffer)
-    (term-send-raw-string "./run\n")
-    ))
-(defun exer ()
-  (interactive)
-  (find-file "~/exercism/emacs-lisp/hello-world/hello-world.el"))
-
-
+(load "/mnt/local_disk_d/emacs-files/files.el")
 
 ;; hat dite nei ------
 (custom-set-variables
